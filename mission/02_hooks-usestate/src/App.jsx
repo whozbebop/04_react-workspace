@@ -4,7 +4,7 @@ import Favorite from "./components/Favorite";
 import Hobby from "./components/Hobby";
 // import Item from "./components/Item";
 // import LoginForm from "./components/LoginForm";
-// import Todos from "./components/Todos";
+import Todos from "./components/Todos";
 import ToggleSwitch from "./components/ToggleSwitch";
 import UserInfo from "./components/UserInfo";
 
@@ -39,7 +39,7 @@ function App() {
 
       {/* 6) 할일(Todo) 컴포넌트 제작 */}
       <h2>할일 목록</h2>
-      {/* <Todos /> */}
+      <Todos />
       <hr />
 
       {/* 7) 계산기 컴포넌트 제작 */}
