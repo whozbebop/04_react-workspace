@@ -33,6 +33,8 @@ function Example5() {
     setUser({
       ...user,
       [e.target.name] : e.target.value
+      // e.target.name은 이벤트가 발생한 input의 name 속성
+      // e.target.value는 input 안에 사용자가 입력한 실제 값
       // 현재 이벤트가 발생된 입력상자의 값만
       // .이 있어서 대괄호 표기법
     })
