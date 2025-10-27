@@ -3,6 +3,7 @@ import Example1 from './component/Example1'
 import Example2 from './component/Example2'
 import Example3 from './component/Example3'
 import Example4 from './component/Example4'
+import Example5 from './component/Example5'
 
 function App() {
 
@@ -17,7 +18,11 @@ function App() {
 
       {/* <Example3 /> */}
 
-      <Example4 />
+      {/* cleanup 함수 예시 */}
+      {/* <Example4 /> */}
+
+      {/* API 통신 예시 */}
+      <Example5 />
     </>
   )
 }
