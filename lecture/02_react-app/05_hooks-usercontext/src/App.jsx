@@ -8,7 +8,7 @@ export const ThemeContext = createContext()
 function App() {
 
   const [isDark, setIsDark] = useState();
-
+1
   return (
     <>
       {/* <NameShareApp2 /> */}
