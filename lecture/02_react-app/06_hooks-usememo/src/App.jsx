@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import BeforeUseMemo from './components/BeforeUseMemo'
 import AfterUseMemo from './components/AfterUseMemo'
+import ObjectTypeExample from './components/ObjectTypeExample'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -8,7 +9,9 @@ function App() {
   return (
     <>
       {/* <BeforeUseMemo /> */}
-      <AfterUseMemo />
+      {/* <AfterUseMemo /> */}
+      <ObjectTypeExample />
+
     </>
   )
 }
