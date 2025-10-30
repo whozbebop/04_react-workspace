@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import MainLayout from './layouts/MainLayout'
-import { Route, Routes } from 'react-router-dom'
+import { Route, RouterProvider, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Menus from './pages/Menus'
 import MenuSearchResult from './pages/MenuSearchResult'
 import MenuDetail from './pages/MenuDetail'
+import { router } from './routes/router'
 
 function App() {
 
@@ -21,17 +22,19 @@ function App() {
 
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="menus">
-            <Route index element={<Menus />} /> {/* /menus */}
+            <Route index element={<Menus />} />
             <Route path=":id" element={<MenuDetail />} />
             <Route path="search" element={<MenuSearchResult />} />
           </Route>
         </Route>
-      </Routes>
+      </Routes> */}
+
+      <RouterProvider router={router} />
     </>
   )
 }
