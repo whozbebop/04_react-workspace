@@ -1,6 +1,4 @@
 import './ProductItem.css'
-import { useContext } from 'react'
-import { cartContext } from '../App'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../store/cartSlice'
 

@@ -25,6 +25,8 @@ const cartSlice = createSlice({
   // (2) 초기 상태값
   initialState: {
     items: [],
+    totalQuantity: 0,
+    totalPrice: 0
   },
   // (3) 리듀서
   reducers: {
@@ -35,24 +37,38 @@ const cartSlice = createSlice({
       }else{ // 장바구니 목록에 신규 아이템 추가
         state.items.push({...action.payload, quantity: 1})
       }
+
+      state.totalQuantity += 1;
+      state.totalPrice += action.payload.price;
     },
     removeFromCart: (state, action) => {
+      const existingItem = state.items.find((item) => item.id === action.payload)
       state.items = state.items.filter((item) => item.id !== action.payload)
+
+      state.totalQuantity -= existingItem.quantity// 현재 삭제할 아이템의 quantity
+      state.totalPrice -= existingItem.quantity * existingItem.price// 현재 삭제할 아이템의 quantity * 현재 삭제할 아이템의 price
     },
     increaseQuantity: (state, action) => {
       const existingItem = state.items.find((item) => item.id === action.payload)
-
       existingItem.quantity += 1;
+
+      state.totalQuantity += 1;
+      state.totalPrice += existingItem.price;
     },
     decreaseQuantity: (state, action) => {
       const existingItem = state.items.find((item) => item.id === action.payload)
-
       if(existingItem.quantity > 1) {
         existingItem.quantity -= 1;
+
+        state.totalQuantity -= 1;
+        state.totalPrice -= existingItem.price;
       }
     },
     clearCart: (state) => {
       state.items = []
+
+      state.totalQuantity = 0;
+      state.totalPrice = 0;
     }
   }
 })

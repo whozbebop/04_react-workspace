@@ -1,22 +1,17 @@
-import { useContext } from 'react';
-import { cartContext } from '../App';
+//import { useContext } from 'react';
+//import { cartContext } from '../App';
 import './Cart.css'
 import CartItem from './CartItem'
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../store/cartSlice';
 
 function Cart() {
 
-  const {items, dispatch} = useContext(cartContext)
-
-  let totalQuantity = 0; // 총수량 => 각 아이템의 수량 합산
-  let totalPrice = 0; // 총금액 => 각 아이템의 가격*수량 합산
-  // for in, for of 확인
-  for(const item of items) {
-    totalQuantity += item.quantity;
-    totalPrice += item.price * item.quantity;
-  }
+  const {items, totalQuantity, totalPrice} = useSelector((state) => state.cart)
+  const dispatch = useDispatch();
 
   const handleClearCart = () => {
-    dispatch({type: 'CLEAR_CART'})
+    dispatch(clearCart());
   }
 
   return (
