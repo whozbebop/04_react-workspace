@@ -1,12 +1,12 @@
 import { useContext } from 'react'
 import './CartItem.css'
-import { cartContext } from '../App'
+import { CartContext } from '../App'
 
 // <Cartitem item={장바구니아이템객체} />
 function CartItem({ item }) { // item === {id: xx, name: xxx, price, quantity: xxx}
 
   //const {dispatch} = useContext(cartContext)
-  const dispatch = useDispatch()
+  const dispatch = useContext(cartContext)
 
   // dispatch(addToCart({
   //   id: product.id,

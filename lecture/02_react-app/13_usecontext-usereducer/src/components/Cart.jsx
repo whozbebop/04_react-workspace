@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { cartContext } from '../App';
+import { CartContext } from '../App';
 import './Cart.css'
 import CartItem from './CartItem'
 
 function Cart() {
 
-  const {items, dispatch} = useContext(cartContext)
+  const {items, dispatch} = useContext(CartContext)
 
   let totalQuantity = 0; // 총수량 => 각 아이템의 수량 합산
   let totalPrice = 0; // 총금액 => 각 아이템의 가격*수량 합산

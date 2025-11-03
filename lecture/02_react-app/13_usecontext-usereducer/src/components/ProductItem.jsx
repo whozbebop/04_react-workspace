@@ -1,12 +1,12 @@
 import { useContext } from 'react'
-import { cartContext } from '../App'
+import { CartContext } from '../App'
 import './ProductItem.css'
 
 //CustomElementRegistry
 
 function ProductItem({ product }){
 
-   const {dispatch} = useContext(cartContext)// product {id: xx, name: xx, price: xx, description: xx}
+   const {dispatch} = useContext(CartContext)// product {id: xx, name: xx, price: xx, description: xx}
 
   const handleAddToCart = () => {
     dispatch({

@@ -4,19 +4,19 @@ import Cart from './components/Cart'
 import { createContext, useReducer } from 'react'
 import { cartReducer, initialState } from './reducers/cartReducer'
 
-export const cartContext = createContext();
+export const CartContext = createContext();
 
 function App() {
 
   const [state, dispatch] = useReducer(cartReducer, initialState) // 리듀서함수, 상태초기값
 
   return (
-    <cartContext.Provider value={{items: state.items, dispatch}}>
+    <CartContext.Provider value={{items: state.items, dispatch}}>
       <div className="app-container">
         <ProductList /> 
         <Cart />
       </div>
-    </cartContext.Provider>
+    </CartContext.Provider>
   )
 }
 
