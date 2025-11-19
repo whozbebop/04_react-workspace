@@ -4,18 +4,15 @@ import postAPI from '../api/postAPI';
 // posts === [{id, title, content, author}, {}, ..]
 function PostList({ posts, setSelectedPost, setPosts }) { 
 
-  const handlePostClick = (e) => {
-
+  const handlePostClick = async (e) => {
     const postId = e.target.dataset.postId;
 
-    // 특정 게시글 한개(자원) 조회(GET) 요청 
-    fetch(`http://localhost:3000/posts/${postId}`)
-      .then(response => response.json())
-      .then(data => {
-        // console.log(data);
-        setSelectedPost(data);
-      })
-      .catch(error => console.log(error.message));
+    try {
+      const posts = await postAPI.getPostById(postId);
+      setSelectedPost(posts)      
+    }catch(error) {
+      console.log(error.message);
+    }
   }
 
   const handlePostDeleteClick = async (e) => {
