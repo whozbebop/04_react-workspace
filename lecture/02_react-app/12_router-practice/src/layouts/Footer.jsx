@@ -1,7 +1,9 @@
+import React from 'react'
+
 function Footer() {
   return (
-    <footer className='footer'>
-      <p>Copyright 2025. All rights reserved</p>
+    <footer className="footer">
+      Copyright 2025. All rights reserved
     </footer>
   )
 }

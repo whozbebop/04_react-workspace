@@ -1,21 +1,22 @@
-import React from 'react';
-import Example1 from './components/Example1';
-import Example2 from './components/Example2';
-import Example3 from './components/Example3';
-import Example4 from './components/Example4';
-import Example5 from './components/Example5';
-import Example6 from './components/Example6';
+import React from 'react'
+import Example1 from './components/Example1'
+import Example2 from './components/Example2'
+import Example3 from './components/Example3'
+import Example4 from './components/Example4'
+import Example5 from './components/Example5'
+import Example6 from './components/Example6'
 
 function App() {
 
-  const [number, setNumber] = React.useState(0) // [ state의초기값 , state를변경시켜주는함수]
+  const [number, setNumber] = React.useState(0) // [ state의초기값 , state를변경시켜주는함수 ]
 
   const handleIncrease = () => {
+    //number++;
     setNumber(number + 1);
   }
 
   const handleDecrease = () => {
-    setNumber((prev)=>prev - 1)
+    setNumber((prev) => prev - 1)
   }
 
   return (
@@ -27,30 +28,25 @@ function App() {
         <button onClick={handleIncrease}>▲</button>
         <button onClick={handleDecrease}>▼</button>
       </div>
-
       <hr />
 
       <Example1 />
-
       <hr />
 
       <Example2 />
-
       <hr />
 
       <Example3 />
-
       <hr />
 
       <Example4 />
-
       <hr />
 
       <Example5 />
-
       <hr />
 
       <Example6 />
+
     </>
   )
 }

@@ -1,31 +1,23 @@
-//import { useContext } from 'react'
-//import { cartContext } from '../App'
+import { decreaseQuantity, increaseQuantity, removeFromCart } from '../store/cartSlice';
 import './CartItem.css'
 import { useDispatch } from 'react-redux'
-import { decreaseQuantity, increaseQuantity, removeFromCart } from '../store/cartSlice';
 
-// <Cartitem item={장바구니아이템객체} />
-function CartItem({ item }) { // item === {id: xx, name: xxx, price, quantity: xxx}
-
-  //const {dispatch} = useContext(cartContext)
-
+function CartItem({ item }) {
+  
   const dispatch = useDispatch();
 
   const handleItemRemove = () => {
-    //dispatch({type: 'REMOVE_FROM_CART', payload: item.id})
     dispatch(removeFromCart(item.id))
   }
 
   const handleItemQuantityIncrease = () => {
-    //dispatch({type: 'INCREASE_QUANTITY', payload: item.id})
     dispatch(increaseQuantity(item.id))
   }
 
   const handleItemQuantityDecrease = () => {
-    //dispatch({type: 'DECREASE_QUANTITY', payload: item.id})
-    dispatch(decreaseQuantity(item.id))
+    dispatch(decreaseQuantity(item.id));
   }
-
+  
   return (
     <div className="cart-item">
       <div className="cart-item-info">

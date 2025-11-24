@@ -1,31 +1,29 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Contact from './pages/Contact'
+import { Link, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
 
   return (
-    <>
-      <div>
-        <nav>
-          {/* <a href="/">홈</a>
-          <a href="/about">소개</a>
-          <a href="/contact"></a> */}
-          {/* Link 컴포넌트는 클라이언트사이드 방식 */}
-          <Link to="/">홈</Link> | <Link to="/about">소개</Link> | <Link to="/contact">문의</Link>
-        </nav>
-        <main>
-          {/* 특정 URL 요청에 있어서 각 페이지마다 보여져야될 컴포넌트 자리 */}
-          <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-      </div>
-    </>
+    <div>
+      <nav>
+        {/* a 태그는 서버사이드 방식 => 매번 응답된 새 html이 다시 렌더링(깜박임) */}
+        {/* <a href="/">홈</a> | <a href="/about">소개</a> | <a href="/contact">문의</a> */}
+
+        {/* Link 컴포넌트는 클라이언트사이드 방식 */}
+        <Link to="/">홈</Link> | <Link to="/about">소개</Link> | <Link to="/contact">문의</Link>
+      </nav>
+      <main>
+        {/* 특정 URL 요청에 있어서 각 페이지마다 보여져야될 컴포넌트 자리 */}
+        <Routes>
+          {/* <Route path="/" element={<Home />} /> */}
+          <Route index element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main> 
+    </div>
   )
 }
 

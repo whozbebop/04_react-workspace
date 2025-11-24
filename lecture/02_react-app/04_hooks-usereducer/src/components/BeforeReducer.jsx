@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-// reducer 개념 사용 전 - useState를 활용한 상태관리
+// reducer 개념 사용 전 - useState를 활용한 상태관리 
 function BeforeReducer() {
 
   const [count, setCount] = useState(0);
@@ -28,7 +28,6 @@ function BeforeReducer() {
       <button onClick={handleCountDecrease}>-1 감소</button>
 
       <button onClick={handleCountReset}>초기화</button>
-      {/* 아래의 것만 왜 이런식으로 호출했을까? GPT */}
       <button onClick={() => handleCountIncreaseByNum(5)}>+5 증가</button>
     </>
   )

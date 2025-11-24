@@ -1,16 +1,10 @@
 {
   "posts": [
     {
-      "title": "json-server 시작하기",
-      "content": "json-server를 사용하여 데이터를 관리하는 방법을 알아봅니다.",
-      "author": "김말순",
+      "title": "json-수정",
+      "content": "json-수정수정",
+      "author": "김말순ㅎㅎ",
       "id": "1"
-    },
-    {
-      "id": "2",
-      "title": "fetch API 사용하기",
-      "content": "fetch API를 사용하여 데이터를 관리하는 방법을 알아봅니다.",
-      "author": "홍길동"
     },
     {
       "id": "3",
@@ -19,10 +13,16 @@
       "author": "이순신"
     },
     {
-      "title": "12새로운 게시물",
-      "content": "12새로운 내용",
-      "author": "김오리",
-      "id": "9eed"
+      "id": "df0e",
+      "title": "신규게시글 ",
+      "content": "내용",
+      "author": "ㅋㅋㅋ"
+    },
+    {
+      "id": "6f34",
+      "title": "새글",
+      "content": "ㅋㅋㅋ",
+      "author": "홍길동"
     }
   ],
   "comments": [

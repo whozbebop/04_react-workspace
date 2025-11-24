@@ -18,7 +18,6 @@ function PostApp() {
     author: '',
   })
 
-  // 세팅 함수를 async 함수로 만들면 안됨
   useEffect(() => {
     // 게시글 목록(자원, Resource) 데이터 조회(행위, GET) 요청 
     setLoading(true);
@@ -27,9 +26,9 @@ function PostApp() {
       try {
         const posts = await postAPI.getAllPosts();
         setPosts(posts);
-      }catch(error) {
+      }catch(error){
         setError(error.message);
-      }finally{
+      }finally {
         setLoading(false);
       }
     }
@@ -54,6 +53,10 @@ function PostApp() {
     }
   }, [selectedPost])
 
+
+
+
+
   // 폼에 입력값 change발생시 실행될 이벤트핸들러
   const handleFormDataChange = (e) => {
     setFormData({
@@ -65,9 +68,8 @@ function PostApp() {
   // 폼에서 등록 요청시 실행될 이벤트핸들러 
   const handleRegistSubmit = async (e) => {
     e.preventDefault(); 
-    // 게시글(자원) 데이터 생성(행위, POST) 요청
     setLoading(true);
-    try {
+    try{
       await postAPI.addPost(formData);
       const newPosts = await postAPI.getAllPosts();
       setPosts(newPosts);
@@ -80,25 +82,22 @@ function PostApp() {
       setError(error.message);
     }finally{
       setLoading(false);
-    }
+    }    
   }
 
-  // 폼에서 수정 요청시 실행할 이벤트핸들러
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
-    // 현재 선택된 게시글 데이터(자원) 수정(PUT) 요청 
     setLoading(true);
-    try{ 
-      await postAPI.updatePost(selectedPost.id, formData);
+    try{
+      await postAPI.updatePost(selectedPost.id, formData)
       const newPosts = await postAPI.getAllPosts();
       setPosts(newPosts);
       setSelectedPost(null);
-    }catch(error) {
+    }catch(error){
       setError(error.message);
-    }finally{
+    }finally {
       setLoading(false);
     }
-    
   }
 
 

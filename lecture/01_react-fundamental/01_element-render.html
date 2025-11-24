@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script
-      crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-    ></script>
-  </head>
-  <body>
-    <!--
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+
+  <!--
     1. react.development.js
       1) https://ko.legacy.reactjs.org/docs/cdn-links.html
       2) React의 코어 라이브러리를 불러옵니다.
@@ -43,46 +38,57 @@
       3) ReactDOM은 Element와 그 자식 Element를 이전의 Element와 비교하고 변경된 부분만 업데이트 합니다.
   -->
 
-    <div id="root1"></div>
+  <div id="root1"></div>
+  <script>
+    // Root DOM Node 생성 
+    const root1 = ReactDOM.createRoot(document.querySelector("#root1"));
 
-    <script>
-      // Root DOM Node 생성
-      const root1 = ReactDOM.createRoot(document.querySelector("#root1"));
+    // React Element 생성 (가상 DOM) 
+    const h1Element = React.createElement(
+      'h1',                   // <h1></h1>
+      {
+        id: "title",          // <h1 id="title"></h1>
+        className: "title"    // <h1 id="title" class="title"></h1>
+      }, 
+      "Hello World"           // <h1 id="title" class="title">Hello World</h1>
+    );
 
-      // React Element 생성 (가상 DOM)
-      const h1Element = React.createElement(
-        "h1",
-        {
-          id: "title",
-          className: "title",
-        },
-        "Hello World"
+    // Rendering 
+    root1.render(h1Element);
+
+  </script>
+
+  <hr>
+
+  <div id="root2"></div>
+
+  <script>
+    const root2 = ReactDOM.createRoot(document.querySelector("#root2"));
+
+    setInterval(() => { // 1초마다 진행 
+      const textElement = React.createElement(
+        "div",
+        {className: "text"},
+        "간단한시계"
       );
+      const timeElement = React.createElement(
+        "div",
+        {className: "time"},
+        new Date().toLocaleTimeString()
+      );
+      root2.render([textElement, timeElement])
+    }, 1000)
 
-      // Rendering
-      root1.render(h1Element);
-    </script>
+  </script>
 
-    <hr />
 
-    <div id="root2"></div>
 
-    <script>
-      const root2 = ReactDOM.createRoot(document.querySelector("#root2"));
 
-      setInterval(() => {
-        const textElement = React.createElement(
-          "div",
-          { className: "text" },
-          "간단한시계"
-        );
-        const timeElement = React.createElement(
-          "span",
-          { className: "time" },
-          new Date().toLocaleTimeString()
-        );
-        root2.render([textElement, timeElement]); // 여러개는 배열로 전달
-      }, 1000);
-    </script>
-  </body>
+
+
+
+
+
+  
+</body>
 </html>

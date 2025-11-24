@@ -3,14 +3,14 @@ import { useOutletContext } from 'react-router-dom'
 
 function Setting() {
 
-  const {numOfUsers, numOfOrders} = useOutletContext() // {numOfUsers: xxx, numOfOrders: xxx}
+  const {numOfUsers, numOfOrders} = useOutletContext() // {numOfUsers: xxx, numOfOrders: xx}
 
   return (
-    <>
-      <div>Setting</div>
-      <div>{numOfUsers}</div>
-      <div>{numOfOrders}</div>
-    </>
+    <div>
+      <h5>대시보드 - 설정페이지</h5>
+      <p>유저 수 : {numOfUsers}</p>
+      <p>주문 수 : {numOfOrders}</p>
+    </div>
   )
 }
 

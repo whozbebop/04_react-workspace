@@ -1,11 +1,11 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import {Outlet, Link} from 'react-router-dom'
 
 function Dashboard() {
 
   const dashboardData = {
     numOfUsers: 100,
-    numOfOrders: 1000,
+    numOfOrders: 1000
   }
 
   return (

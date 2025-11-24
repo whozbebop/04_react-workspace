@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom'
 import MenuList from '../components/MenuList';
-import { searchMenus } from '../api/MenuApi';
+import { searchMenus } from '../api/MenuAPI';
 
 function MenuSearchResult() {
 
   const [menus, setMenus] = useState([]);
   const [searchParams] = useSearchParams() // [URLSearchParams객체]
 
-  const condition = searchParams.get('condition');
-  const keyword = searchParams.get('keyword');
+  const condition = searchParams.get("condition");
+  const keyword = searchParams.get("keyword");
 
-  useEffect(()=> {
+  useEffect(() => {
     setMenus(searchMenus(condition, keyword))
   }, []);
 

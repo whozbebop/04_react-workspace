@@ -1,8 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+body {margin: 0;padding: 0;}
+* {box-sizing: border-box;}
 
 .app {
   width: 100%;
@@ -16,9 +13,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: lightgray;
-  color: black
+  color: black;
 }
 
 .navbar {
@@ -26,33 +22,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.navbar {
-  background: lightgray;
+  background-color: lightgray;
   color: black;
 }
 .navbar-list {
+  list-style: none;
   display: flex;
   gap: 20px;
-  list-style: none;
 }
 .navbar-list * {
   text-decoration: none;
   color: black;
 }
-
-.navbar-list .active {
+.navbar .active {
   color: red;
+  font-weight: bold;
 }
 
 .content {
   flex: 1;
   font-size: 20px;
   padding: 20px;
-
   background-color: white;
-  color: black
+  color: black;
 }
 
 .footer {
@@ -61,7 +53,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   background-color: lightgray;
-  color: black
+  color: black;
 }

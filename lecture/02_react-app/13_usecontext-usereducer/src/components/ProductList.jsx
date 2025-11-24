@@ -1,6 +1,7 @@
+import React from 'react'
 import './ProductList.css'
-import ProductItem from './ProductItem'
 import products from '../data/products.json'
+import ProductItem from './ProductItem'
 
 function ProductList() {
   return (

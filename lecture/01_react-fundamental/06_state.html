@@ -103,38 +103,39 @@
 
   <div id="root1"></div>
   <script type="text/babel">
-    // extends React.Component 상속 받아야 컴포넌트 제 기능 가능
+
     class SpinComp1 extends React.Component {
 
       // state 선언 및 초기화
       state = {
         number: 0,
-        // xxx: xx
-      }
+      };
 
       // 이벤트핸들러 함수
-      handleIncrease = () => {
-        //this.state.number++; // 직접 변경시 렌더링이 일어나지 않음
+      handleIncrease = () => { // state의 number값을 1증가시키기 (값 변경)
+        // this.state.number++; => 직접 값 변경 => 리렌더링이 발생 되지 않음 
         this.setState({
           number: this.state.number + 1
         })
       }
 
-      handleDecrease = () => {
-        //this.state.number++; // 직접 변경시 렌더링이 일어나지 않음
-        this.setState({
-          number: this.state.number - 1
+      handleDecrease = () => { // 현재의 number state값을 1감소시키기
+        this.setState((prevState) => {
+          return {
+            number: prevState.number - 1
+          }
         })
       }
       
       render() {
-        const {number} = this.state; // 리팩토링? gpt한테 물어볼까
+        const {number} = this.state; // {number: xx}
+
         return (
           <div>
             <h1 style={{
-              color: number === 0 ? "black" :
-                     number > 0 ? "red" : "blue"
-            }}>{this.state.number}</h1>
+              color: number === 0 ? "black" : 
+                     number > 0   ? "red"   : "blue"
+            }}>{number}</h1>
             <button onClick={this.handleIncrease}>▲</button>
             <button onClick={this.handleDecrease}>▼</button>
           </div>
@@ -149,37 +150,41 @@
 
   <div id="root2"></div>
   <script type="text/babel">
+
     class SpinComp2 extends React.Component {
 
-      // 생성자를 이용한 state 선언 및 초기화
-      constructor(props) { // {num: 0}
+      constructor(props) { // {num: xx}
         super(props);
+        // 생성자를 이용한 state 선언 및 초기화
         this.state = {
           number: props.num,
-        }
+        };
       }
 
-      // 이벤트핸들러 함수
-      handleIncrease = () => {
+     
+      handleIncrease = () => { 
         this.setState({
           number: this.state.number + 1
         })
       }
 
-      handleDecrease = () => {
-        this.setState({
-          number: this.state.number - 1
+      handleDecrease = () => { 
+        this.setState((prevState) => {
+          return {
+            number: prevState.number - 1
+          }
         })
       }
       
       render() {
         const {number} = this.state;
+
         return (
           <div>
             <h1 style={{
-              color: number === 0 ? "black" :
-                     number > 0 ? "red" : "blue"
-            }}>{this.state.number}</h1>
+              color: number === 0 ? "black" : 
+                     number > 0   ? "red"   : "blue"
+            }}>{number}</h1>
             <button onClick={this.handleIncrease}>▲</button>
             <button onClick={this.handleDecrease}>▼</button>
           </div>
@@ -188,7 +193,7 @@
 
     }
 
-    ReactDOM.createRoot(document.querySelector('#root2')).render( <SpinComp2 num={0} /> );
+    ReactDOM.createRoot(document.querySelector('#root2')).render( <SpinComp2 num={10} /> );
   </script>
   <hr>
 

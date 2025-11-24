@@ -3,11 +3,10 @@ import React from 'react'
 function Example1() {
 
   const [message, setMessage] = React.useState('');
-  
-  const handleInptChange= (e) => {
+
+  const handleInputChange = (e) => {
     setMessage(e.target.value)
   }
-
 
   return (
     <>
@@ -16,7 +15,7 @@ function Example1() {
         type="text" 
         placeholder="메세지를 입력하세요." 
         value={message}
-        onChange = {handleInptChange}
+        onChange={handleInputChange}
       />
       <h5>실시간 입력값: {message}</h5>
     </>

@@ -48,10 +48,11 @@
 
   <div id="root1"></div>
   <script type="text/babel">
+
     function App() {
-      return(
+      return (
         <>
-          <button onClick={() => alert('첫번째 버튼 클릭')}>첫번째 버튼</button>
+          <button onClick={() => alert("첫번째 버튼 클릭!!")}>첫번째 버튼</button>
         </>
       )
     }
@@ -65,12 +66,12 @@
     function App() {
       // 이벤트 핸들러
       const handleClick = () => {
-        alert('두번째 버튼 클릭!!')
+        alert("두번째 버튼 클릭!!");
       }
-      // 함수 호출 아니고 참조값 전달
+
       return (
         <>
-          <button onClick={ handleClick }>두번째 버튼</button>
+          <button onClick={handleClick}>두번째 버튼</button>
         </>
       )
     }
@@ -81,43 +82,45 @@
 
   <div id="root3"></div>
   <script type="text/babel">
-    // 이벤트 핸들러를 컴포넌트로 전달
 
+    // 이벤트 핸들러를 컴포넌트로 전달 
     function App() {
       return (
         <>
           <Button 
             className="warning" 
-            handleClick={() => {alert('경고!!')}}>
+            handleClick={() => alert('경고!!')}>
             경고창출력
           </Button>
           <Button 
-            className="secondary" 
-            handleClick={() => {prompt('입력창')}}>
+            className="secondary"
+            handleClick={() => prompt('입력창')}>
             입력창출력
           </Button>
-          <Button 
+
+          <Button
             type="submit"
-            handleClick={(e) => {e.preventDefault()}}>
-            경고창출력
+            handleClick={(e) => e.preventDefault()}>
+            회원가입
           </Button>
+
         </>
       )
     }
 
-    const Button = ({type = "button", className = "primary", handleClick, children}) => { // {type: xxx, className: xxxx, handleClick: xxx, children: xxx}
+    const Button = ({type = "button", className = "primary", handleClick, children}) => { // { type: xxx, className: xxxx, handleClick: xxx, children: xxx }
       return (
-        <>
-          <button 
-            type={type} 
-            className={className}
-            onClick={handleClick}
-          >
-            {children}
-          </button>
-        </>
+        <button 
+          type={type}
+          className={className} 
+          onClick={handleClick}
+        >
+          {children}
+        </button>
       )
     }
+
+   
 
     ReactDOM.createRoot(document.querySelector('#root3')).render( <App /> );
   </script>

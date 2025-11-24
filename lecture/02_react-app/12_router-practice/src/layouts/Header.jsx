@@ -1,7 +1,8 @@
+import React from 'react'
 
 function Header() {
   return (
-    <header className='header'>
+    <header className="header">
       <h1>This is Header</h1>
     </header>
   )

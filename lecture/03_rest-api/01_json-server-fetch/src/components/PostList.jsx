@@ -6,13 +6,12 @@ function PostList({ posts, setSelectedPost, setPosts }) {
 
   const handlePostClick = async (e) => {
     const postId = e.target.dataset.postId;
-
-    try {
-      const posts = await postAPI.getPostById(postId);
-      setSelectedPost(posts)      
-    }catch(error) {
+    try{
+      const post = await postAPI.getPostById(postId);
+      setSelectedPost(post);
+    }catch(error){
       console.log(error.message);
-    }
+    }    
   }
 
   const handlePostDeleteClick = async (e) => {

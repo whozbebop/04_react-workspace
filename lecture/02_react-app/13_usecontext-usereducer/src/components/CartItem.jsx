@@ -1,18 +1,11 @@
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import './CartItem.css'
 import { CartContext } from '../App'
 
-// <Cartitem item={장바구니아이템객체} />
-function CartItem({ item }) { // item === {id: xx, name: xxx, price, quantity: xxx}
-
-  //const {dispatch} = useContext(cartContext)
-  const dispatch = useContext(cartContext)
-
-  // dispatch(addToCart({
-  //   id: product.id,
-  //   name: product.name,
-  //   price: product.price
-  // }))
+// <CartItem item={장바구니아이템객체} />
+function CartItem({ item }) { // item === {id: xx, name: xxx, price: xxx, quantity: xxx}
+  
+  const {dispatch} = useContext(CartContext);
 
   const handleItemRemove = () => {
     dispatch({type: 'REMOVE_FROM_CART', payload: item.id})
@@ -25,7 +18,7 @@ function CartItem({ item }) { // item === {id: xx, name: xxx, price, quantity: x
   const handleItemQuantityDecrease = () => {
     dispatch({type: 'DECREASE_QUANTITY', payload: item.id})
   }
-
+  
   return (
     <div className="cart-item">
       <div className="cart-item-info">

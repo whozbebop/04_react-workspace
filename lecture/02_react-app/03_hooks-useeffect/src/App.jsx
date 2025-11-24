@@ -1,28 +1,24 @@
-import { useState } from 'react'
-import Example1 from './component/Example1'
-import Example2 from './component/Example2'
-import Example3 from './component/Example3'
-import Example4 from './component/Example4'
-import Example5 from './component/Example5'
+import Example1 from "./components/Example1"
+import Example2 from "./components/Example2"
+import Example3 from "./components/Example3"
+import Example4 from "./components/Example4"
+import Example5 from "./components/Example5"
 
 function App() {
 
   return (
     <>
-      
+      {/* * 의존성배열(dependencies)에 따른 실행시점 차이 */}
       {/* <Example1 /> */}
-
-      {/* <hr /> */}
-
       {/* <Example2 /> */}
-
       {/* <Example3 /> */}
 
-      {/* cleanup 함수 예시 */}
+      {/* * cleanup함수 예시 */}
       {/* <Example4 /> */}
 
-      {/* API 통신 예시 */}
+      {/* * API통신 예시 */}
       <Example5 />
+
     </>
   )
 }

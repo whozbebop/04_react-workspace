@@ -3,16 +3,14 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Profile from "./pages/Profile"
 import Practice from "./pages/Practice"
-import It from "./pages/It"
-import History from "./pages/History"
-import Art from "./pages/Art"
 
 function App() {
 
   return (
     <>
       <nav>
-        <Link to="/">Home</Link> | <Link to="/about">About</Link> | <Link to="/profile/1">1번회원프로필페이지</Link> | <Link to="/profile/2">2번회원프로필페이지</Link> | <Link to="/practice/it/1">연습</Link>
+        <Link to="/">Home</Link> | <Link to="/about">About</Link> |
+        <Link to="/profile/1">1번회원프로필페이지</Link> | <Link to="/profile/2">2번회원프로필페이지</Link>
       </nav>
       <main>
         <Routes>
@@ -31,7 +29,7 @@ export default App
 /*
   1. 동적 라우팅 (dynamic routing)
     1) URL 경로 일부를 변수처럼 활용하여 동일한 컴포넌트로 다양한 데이터를 표시하도록 하는 라우팅 방식입니다. 
-    2) 동적 세그먼트(동적 파라미터, 경로변수)를 통해 URL애 따라 컴포넌트가 동적으로 렌더링됩니다.
+    2) 동적 세그먼트(동적 파라미터, 경로변수)를 통해 URL에 따라 컴포넌트가 동적으로 렌더링됩니다.
     3) 동적 세그먼트란?
       - 경로의 일부분에 변수처럼 값을 넣을 수 있는 시스템입니다.
       - 예를 들어, 특정 상품의 상세 페이지가 "/product/:pid" 형태라면, 실제 주소가 /product/123일 경우, pid에 123이라는 값이 들어갑니다.

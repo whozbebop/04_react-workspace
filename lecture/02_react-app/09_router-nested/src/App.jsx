@@ -1,4 +1,4 @@
-import { Link, Routes, Route} from 'react-router-dom'
+import {Link, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Setting from './pages/Setting'
@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <nav style={{background: 'black', height: '60px', color: 'white', lineHeight: '60px', padding: '0 20px'}}>
-        <Link to="/" style={{color: 'white', textDecoration: 'none'}}>홈</Link> | <Link to="/dashboard" style={{color: 'white', textDecoration: 'none'}}>대시보드</Link>
+        <Link to="/">홈</Link> | <Link to="/dashboard">대시보드</Link>
       </nav>
       <main style={{padding: '20px'}}>
         <Routes>
@@ -36,4 +36,3 @@ export default App
     2) Outlet에 표현되는 자식 라우트 컴포넌트로 Context를 통해 데이터를 전달할 수 있습니다.
     3) 자식 라우트 컴포넌트에서는 useOutletContext() 훅을 사용하여 Context에 저장된 데이터를 읽을 수 있습니다.
 */
-

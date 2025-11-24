@@ -22,41 +22,41 @@ import {createSlice} from '@reduxjs/toolkit'
 const cartSlice = createSlice({
   // (1) 슬라이스 이름
   name: 'cart',
-  // (2) 초기 상태값
+  // (2) 초기 상태값 
   initialState: {
     items: [],
     totalQuantity: 0,
-    totalPrice: 0
+    totalPrice: 0,
   },
-  // (3) 리듀서
+  // (3) 리듀서 
   reducers: {
     addToCart: (state, action) => {
       const existingItem = state.items.find((item) => item.id === action.payload.id);
-      if(existingItem){ //기존의 아이템의 수량 1 증가
-        existingItem.quantity += 1
-      }else{ // 장바구니 목록에 신규 아이템 추가
-        state.items.push({...action.payload, quantity: 1})
+      if(existingItem) { // 기존의 아이템의 수량 1 증가 
+        existingItem.quantity += 1;
+      }else{ // 장바구니 목록에 신규 아이템 추가 
+        state.items.push({...action.payload, quantity: 1});
       }
 
       state.totalQuantity += 1;
       state.totalPrice += action.payload.price;
     },
     removeFromCart: (state, action) => {
-      const existingItem = state.items.find((item) => item.id === action.payload)
-      state.items = state.items.filter((item) => item.id !== action.payload)
+      const existingItem = state.items.find((item) => item.id === action.payload);
+      state.items = state.items.filter((item) => item.id !== action.payload);
 
-      state.totalQuantity -= existingItem.quantity// 현재 삭제할 아이템의 quantity
-      state.totalPrice -= existingItem.quantity * existingItem.price// 현재 삭제할 아이템의 quantity * 현재 삭제할 아이템의 price
+      state.totalQuantity -= existingItem.quantity;
+      state.totalPrice -= existingItem.quantity * existingItem.price;
     },
     increaseQuantity: (state, action) => {
-      const existingItem = state.items.find((item) => item.id === action.payload)
+      const existingItem = state.items.find((item) => item.id === action.payload);
       existingItem.quantity += 1;
 
       state.totalQuantity += 1;
       state.totalPrice += existingItem.price;
     },
     decreaseQuantity: (state, action) => {
-      const existingItem = state.items.find((item) => item.id === action.payload)
+      const existingItem = state.items.find((item) => item.id === action.payload);
       if(existingItem.quantity > 1) {
         existingItem.quantity -= 1;
 
@@ -65,7 +65,7 @@ const cartSlice = createSlice({
       }
     },
     clearCart: (state) => {
-      state.items = []
+      state.items = [];
 
       state.totalQuantity = 0;
       state.totalPrice = 0;
@@ -73,13 +73,15 @@ const cartSlice = createSlice({
   }
 })
 
-//console.log(cartSlice)
+// console.log(cartSlice); // {name, actions, reducer, ...}
+// console.log(cartSlice.actions); 
 
 // 액션 생성자 함수 (후에 컴포넌트에서 dispatch로 액션객체 전달하는 곳에서 사용될 예정)
-console.log(cartSlice.actions.addToCart()) // { type: 'cart/addToCart', payload: undefined }
-console.log(cartSlice.actions.addToCart({id: 1, name: '상품명', price: 10000}))
+// console.log(cartSlice.actions.addToCart()) // { type: 'cart/addToCart', payload: undefined }
+// console.log(cartSlice.actions.addToCart({id: 1, name: '상품명', price: 10000})) // { type: 'cart/addToCart', payload: {id: 1, name: '상품명', price: 10000} }
 
-// export1. 모든 액션 생성자 함수 (컴포넌트에서 dispatch하기 위해)
+
+// export. 모든 액션 생성자 함수 (컴포넌트에서 dispatch하기 위해)
 export const {addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart} = cartSlice.actions
 
 // default export. 전체 리듀서 함수 (스토어에 등록하기 위해)

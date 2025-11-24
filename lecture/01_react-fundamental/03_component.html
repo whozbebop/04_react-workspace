@@ -47,20 +47,21 @@
 
   <div id="root1"></div>
   <script type="text/babel">
-      //클래스 컴포넌트 만들어보기
-      class ClassComp extends React.Component {
-        render() {
-          // 화면에 표현할 엘리먼트들 반환
-          return ( 
-            <> 
-              <h1>Hello</h1>
-              <h1>ClassComponent</h1>
-            </>
-          )
-        }
+    // 클래스 컴포넌트 만들어보기 
+    class ClassComp extends React.Component {
+      render() {
+        // 화면에 표현할 엘리먼트를 반환 
+        return (
+          <>
+            <h1>Hello</h1>
+            <h1>Class Component</h1>
+          </>
+        )
+      }
     }
 
-    ReactDOM.createRoot(document.querySelector('#root1')).render(<ClassComp />);
+    ReactDOM.createRoot(document.querySelector("#root1")).render(<ClassComp />)
+
   </script>
   <hr>
   
@@ -68,7 +69,7 @@
   <script type="text/babel">
     // 함수형 컴포넌트 만들어보기 : 함수선언식, 함수표현식 모두 사용 가능
     const FunctionComp = () => {
-      // 함수에 표현할 엘리먼트 반환
+      // 함수에 표현할 엘리먼트 반환 
       return (
         <div>
           <h1>Hello</h1>
@@ -76,24 +77,25 @@
         </div>
       )
     }
-    ReactDOM.createRoot(document.querySelector('#root2')).render(<FunctionComp />)
+
+    ReactDOM.createRoot(document.querySelector("#root2")).render(<FunctionComp />)
   </script>
   <hr>
 
   <div id="root3"></div>
   <script type="text/babel">
-    // 컴포넌트 합성 : 여러 컴포넌트 조합해서 하나의 컴포넌트 구성
-    function App () { // App이라는 새로운 컴포넌트
+    // 컴포넌트 합성 : 여러 컴포넌트 조합해서 하나의 컴포넌트로 새롭게 구성
+
+    function App() { // App이라는 새로운 컴포넌트
       return (
         <>
-          <ClassComp />
-          <ClassComp />
           <ClassComp />
           <FunctionComp />
         </>
       )
     }
-    ReactDOM.createRoot(document.querySelector('#root3')).render(<App />)
+
+    ReactDOM.createRoot(document.querySelector("#root3")).render(<App />)
   </script>
   <hr>
 </body>
